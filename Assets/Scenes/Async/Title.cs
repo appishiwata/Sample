@@ -21,5 +21,10 @@ public class Title : MonoBehaviour
         await UniTask.Delay(TimeSpan.FromSeconds(2f));
         text.color = Color.red;
         Debug.Log("Color.red");
+
+        //5秒待ってからテキストのサイズを変更する
+        await UniTask.Delay(TimeSpan.FromSeconds(5f));
+        text.fontSize = 100;
+        Debug.Log("fontSize 100");
     }
 }

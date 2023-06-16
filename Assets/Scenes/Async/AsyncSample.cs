@@ -1,5 +1,6 @@
 using System;
 using Cysharp.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,9 +8,17 @@ public class AsyncSample : MonoBehaviour
 {
     [SerializeField] Button _closeButton;
     [SerializeField] Button _openButton;
+    [SerializeField] Button _cancelButton;
+
+    [SerializeField] TextMeshProUGUI _titleText;
 
     async void Start()
     {
+        //_cancelButtonを押すまで待つ
+        await _cancelButton.OnClickAsync();
+        //_titleTextを削除する
+        Destroy(_titleText.gameObject);
+
         //_closeButtonを3回押すまで待つ(while文)
         int count = 0;
         while (count < 3)
