@@ -10,6 +10,31 @@ public class AsyncSample : MonoBehaviour
 
     async void Start()
     {
+        //_closeButtonを3回押すまで待つ(while文)
+        int count = 0;
+        while (count < 3)
+        {
+            await _closeButton.OnClickAsync();
+            count++;
+        }
+        Debug.Log("close 3 times while");
+
+        //_closeButtonを3回押すまで待つ(for文)
+        for (int i = 0; i < 3; i++)
+        {
+            await _closeButton.OnClickAsync();
+        }
+        Debug.Log("close 3 times for");
+
+        //cancelTokenを使ってボタンが押されるまで待つ
+        var cancelToken = this.GetCancellationTokenOnDestroy();
+        await _closeButton.OnClickAsync(cancelToken);
+        Debug.Log("close cancelToken");
+
+        //cancelTokenを使って1秒待つ
+        await UniTask.Delay(TimeSpan.FromSeconds(1f), cancellationToken: cancelToken);
+        Debug.Log("1 second wait cancelToken");
+        
         //3秒待つ
         //await UniTask.Delay(TimeSpan.FromSeconds(3f));
 
