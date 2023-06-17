@@ -14,6 +14,10 @@ public class AsyncSample : MonoBehaviour
 
     async void Start()
     {
+        //_openButtonを押したらDebug.Logを出す _closeButtonを押したらDebug.Logを出す
+        _openButton.onClick.AddListener(() => Debug.Log("open"));
+        _closeButton.onClick.AddListener(() => Debug.Log("close"));
+        
         //_cancelButtonを押すまで待つ
         await _cancelButton.OnClickAsync();
         //_titleTextを削除する
