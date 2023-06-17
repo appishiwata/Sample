@@ -25,7 +25,13 @@ public class AsyncSample : MonoBehaviour
             openCount++;
             Debug.Log($"open {openCount} times");
         });
-        
+
+        // リスナーに登録されている数を表示する
+        // - インスペクターから登録すると永続的。個数取得できる
+        // - scriptからAddListenerで登録すると非永続的。個数取得できない。
+        var listenerCount = _openButton.onClick.GetPersistentEventCount();
+        Debug.Log("Listener Count: " + listenerCount);
+
         //_closeButtonが押された回数をカウントする 1秒間はボタンを押せないようにする
         int closeCount = 0;
         _closeButton.onClick.AddListener(async () =>
