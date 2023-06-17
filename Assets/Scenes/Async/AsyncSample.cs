@@ -15,9 +15,28 @@ public class AsyncSample : MonoBehaviour
     async void Start()
     {
         //_openButtonを押したらDebug.Logを出す _closeButtonを押したらDebug.Logを出す
-        _openButton.onClick.AddListener(() => Debug.Log("open"));
-        _closeButton.onClick.AddListener(() => Debug.Log("close"));
+        //_openButton.onClick.AddListener(() => Debug.Log("open"));
+        //_closeButton.onClick.AddListener(() => Debug.Log("close"));
         
+        //_openButtonが押された回数をカウントしてログを出す 1回のAddListenerで2つの処理を行う
+        int openCount = 0;
+        _openButton.onClick.AddListener(() =>
+        {
+            openCount++;
+            Debug.Log($"open {openCount} times");
+        });
+        
+        //_closeButtonが押された回数をカウントする 1秒間はボタンを押せないようにする
+        int closeCount = 0;
+        _closeButton.onClick.AddListener(async () =>
+        {
+            _closeButton.interactable = false;
+            closeCount++;
+            await UniTask.Delay(TimeSpan.FromSeconds(1f));
+            _closeButton.interactable = true;
+            Debug.Log($"close {closeCount} times");
+        });
+
         //_cancelButtonを押すまで待つ
         await _cancelButton.OnClickAsync();
         //_titleTextを削除する
