@@ -14,6 +14,12 @@ public class ClassSample : MonoBehaviour
         // Playerクラスのメンバ関数にアクセスして実行
         myPlayer.Attack();
         myPlayer.Damage(30);
+
+        // Playerクラスの変数を宣言してインスタンスを代入
+        Player myPlayer2 = new Player();
+
+        // Playerクラスの変数を宣言してインスタンスを代入
+        Player myPlayer3 = new Player(200, 100);
     }
 }
 
@@ -23,6 +29,20 @@ public class Player
     // メンバ変数
     public int hp = 100;
     public int power = 50;
+
+    // コンストラクタ
+    public Player()
+    {
+        Debug.Log("Playerクラスのコンストラクタが実行されました");
+    }
+
+    // コンストラクタ 引数あり
+    public Player(int hp, int power)
+    {
+        this.hp = hp;
+        this.power = power;
+        Debug.Log("Playerクラスのコンストラクタが実行されました 引数あり");
+    }
 
     // メンバ関数
     public void Attack()
