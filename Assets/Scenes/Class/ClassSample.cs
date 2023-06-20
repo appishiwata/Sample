@@ -20,6 +20,16 @@ public class ClassSample : MonoBehaviour
 
         // Playerクラスの変数を宣言してインスタンスを代入
         Player myPlayer3 = new Player(200, 100);
+
+        // SuperPlayerクラスの変数を宣言してインスタンスを代入
+        SuperPlayer mySuperPlayer = new SuperPlayer();
+        // SuperPlayerクラスのメンバ変数にアクセスして値を代入
+        mySuperPlayer.hp = 100;
+        mySuperPlayer.power = 50;
+        // SuperPlayerクラスのメンバ関数にアクセスして実行
+        mySuperPlayer.Attack();
+        mySuperPlayer.Damage(30);
+        mySuperPlayer.SpecialAttack();
     }
 }
 
@@ -55,5 +65,27 @@ public class Player
     {
         this.hp -= damage;
         Debug.Log(damage + "のダメージを受けた");
+    }
+}
+
+// Playerクラスを継承したSuperPlayerクラスを作成する
+public class SuperPlayer : Player
+{
+    // コンストラクタ
+    public SuperPlayer()
+    {
+        Debug.Log("SuperPlayerクラスのコンストラクタが実行されました");
+    }
+
+    // コンストラクタ 引数あり
+    public SuperPlayer(int hp, int power) : base(hp, power)
+    {
+        Debug.Log("SuperPlayerクラスのコンストラクタが実行されました 引数あり");
+    }
+
+    // メンバ関数
+    public void SpecialAttack()
+    {
+        Debug.Log(this.power * 2 + "のダメージを与えた 特殊攻撃");
     }
 }
