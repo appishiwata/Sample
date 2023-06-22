@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AnimSample : MonoBehaviour
 {
@@ -12,8 +13,18 @@ public class AnimSample : MonoBehaviour
     [SerializeField] TextMeshProUGUI _shakeText;
     [SerializeField] TextMeshProUGUI _sampleText;
 
+    [SerializeField] Button _button;
+    [SerializeField] Image _image;
+
     void Start()
     {
+        // ボタンのクリックイベントを登録 無名関数を使用
+        _button.onClick.AddListener(() =>
+        {
+            // _imageの位置をdotweenでアニメーション _buttonの位置に移動
+            _image.transform.DOMove(_button.transform.position, 1f).SetEase(Ease.OutBounce);
+        });
+
         // テキストを設定
         _colorText.text = "Color";
         _moveText.text = "Move";
