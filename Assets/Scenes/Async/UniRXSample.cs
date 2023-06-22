@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using UniRx;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class UniRXSample : MonoBehaviour
     [SerializeField] Button _button;
     [SerializeField] Button _strikeButton;
     [SerializeField] Button _waitButton;
+    [SerializeField] Button[] _buttons;
 
     async void Start()
     {
@@ -38,10 +40,18 @@ public class UniRXSample : MonoBehaviour
             });
 
         // UniTaskのサンプル
-        await Sample();
+        //await Sample();
 
         // UniTaskのサンプル
-        await WaitButtonClick();
+        //await WaitButtonClick();
+
+        // 全てのボタンが押されるまで待機
+        Observable.WhenAll(_buttons.Select(button => button.OnClickAsObservable().First().AsUnitObservable()))
+            .Subscribe(_ =>
+            {
+                Debug.Log("すべてのボタンが押されました！");
+            })
+            .AddTo(this);
     }
 
     // UniTaskの関数
