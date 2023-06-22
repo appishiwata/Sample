@@ -1499,8 +1499,11 @@ MonoBehaviour:
   _rotateText: {fileID: 1063521653}
   _shakeText: {fileID: 2113803770}
   _sampleText: {fileID: 1187654331}
-  _button: {fileID: 134863988}
   _image: {fileID: 774942176}
+  _buttons:
+  - {fileID: 134863988}
+  - {fileID: 1354824269}
+  - {fileID: 407476769}
 --- !u!4 &2049773926
 Transform:
   m_ObjectHideFlags: 0

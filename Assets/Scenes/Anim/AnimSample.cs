@@ -12,18 +12,21 @@ public class AnimSample : MonoBehaviour
     [SerializeField] TextMeshProUGUI _rotateText;
     [SerializeField] TextMeshProUGUI _shakeText;
     [SerializeField] TextMeshProUGUI _sampleText;
-
-    [SerializeField] Button _button;
     [SerializeField] Image _image;
+
+    [SerializeField] Button[] _buttons;
 
     void Start()
     {
-        // ボタンのクリックイベントを登録 無名関数を使用
-        _button.onClick.AddListener(() =>
+        // _buttonsのボタンのクリックイベントを登録
+        foreach (var button in _buttons)
         {
-            // _imageの位置をdotweenでアニメーション _buttonの位置に移動
-            _image.transform.DOMove(_button.transform.position, 1f).SetEase(Ease.OutBounce);
-        });
+            button.onClick.AddListener(() =>
+            {
+                // _imageの位置をdotweenでアニメーション _buttonの位置に移動
+                _image.transform.DOMove(button.transform.position, 1f).SetEase(Ease.OutBounce);
+            });
+        }
 
         // テキストを設定
         _colorText.text = "Color";
