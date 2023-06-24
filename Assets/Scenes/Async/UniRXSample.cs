@@ -15,6 +15,7 @@ public class UniRXSample : MonoBehaviour
     [SerializeField] Button _waitButton;
     [SerializeField] Button[] _buttons;
     [SerializeField] Button _pressButton;
+    [SerializeField] Button _pressContinueButton;
 
     async void Start()
     {
@@ -62,6 +63,17 @@ public class UniRXSample : MonoBehaviour
             .Subscribe(_ =>
             {
                 Debug.Log("長押しされた");
+            });
+
+        // 長押ししている間2秒ごとに実行
+        _pressContinueButton.OnPointerDownAsObservable()
+            .SelectMany(_ => Observable.Timer(TimeSpan.FromSeconds(0.5)))
+            .SelectMany(_ => Observable.Interval(TimeSpan.FromSeconds(2)))
+            .TakeUntil(_pressContinueButton.OnPointerUpAsObservable())
+            .RepeatUntilDestroy(this.gameObject)
+            .Subscribe(_ => 
+            {
+                Debug.Log("長押しされた" + _);
             });
     }
 
