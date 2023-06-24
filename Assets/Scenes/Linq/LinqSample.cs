@@ -1,16 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LinqSample : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI[] _texts;
+    [SerializeField] Button[] _buttons;
+
     void Start()
     {
         //GetLinqSample();
         //GetListSample();
         //GetArraySample();
         //GetDictionarySample();
+
+        // 以下すべてToarrayしてるけどしなくてもループできる
+        // Debugで確認するときはToArrayしておくとループせずに中身確認できる
+        // _textsの要素をすべて取得
+        var texts = _texts.Select(text => text.text).ToArray();
+
+        // _buttonsの要素をすべて取得
+        var buttons = _buttons.Select(button => button.gameObject).ToArray();
+
+        // _buttonsの要素のTextをすべて取得
+        var buttonsTexts = _buttons.Select(button => button.GetComponentInChildren<TextMeshProUGUI>().text).ToArray();
+
+        // _buttonsのinteractableがfalseの要素をすべて取得
+        var interactableButtons = _buttons.Where(button => button.interactable == false).ToArray();
     }
 
     void GetDictionarySample()
