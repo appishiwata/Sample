@@ -10,6 +10,14 @@ public class LinqSample : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] _texts;
     [SerializeField] Button[] _buttons;
 
+    // classの定義
+    class Person
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
+
     void Start()
     {
         //GetLinqSample();
@@ -17,6 +25,43 @@ public class LinqSample : MonoBehaviour
         //GetArraySample();
         //GetDictionarySample();
         //GetLinqSampleMethods();
+
+        // PersonクラスのListを作成
+        var persons = new List<Person>
+        {
+            new Person { Id = 1, Name = "A", Age = 10 },
+            new Person { Id = 2, Name = "B", Age = 20 },
+            new Person { Id = 3, Name = "C", Age = 30 },
+            new Person { Id = 4, Name = "D", Age = 40 },
+            new Person { Id = 5, Name = "E", Age = 50 },
+        };
+        // Whereメソッドで条件に合うものを抽出
+        var persons2 = persons.Where(p => p.Age >= 30).ToList();
+
+        // PersonクラスのArrayを作成
+        var persons3 = new Person[]
+        {
+            new Person { Id = 1, Name = "A", Age = 10 },
+            new Person { Id = 2, Name = "B", Age = 20 },
+            new Person { Id = 3, Name = "C", Age = 30 },
+            new Person { Id = 4, Name = "D", Age = 40 },
+            new Person { Id = 5, Name = "E", Age = 50 },
+        };
+        // Whereメソッドで条件に合うものを抽出
+        var persons4 = persons3.Where(p => p.Age <= 30).ToArray();
+
+        // PersonクラスのDictionaryを作成
+        var persons5 = new Dictionary<int, Person>
+        {
+            { 1, new Person { Id = 1, Name = "A", Age = 10 } },
+            { 2, new Person { Id = 2, Name = "B", Age = 20 } },
+            { 3, new Person { Id = 3, Name = "C", Age = 30 } },
+            { 4, new Person { Id = 4, Name = "D", Age = 40 } },
+            { 5, new Person { Id = 5, Name = "E", Age = 50 } },
+        };
+        // Whereメソッドで条件に合うものを抽出
+        var persons6 = persons5.Where(p => p.Value.Age >= 40).ToDictionary(p => p.Key, p => p.Value);
+
 
         // LinQのサンプル Array型
         var array = new int[] { 1, 2, 3, 4, 5 };
