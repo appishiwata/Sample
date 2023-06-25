@@ -36,10 +36,10 @@ public class LinqSample : MonoBehaviour
     void GetLinqSampleMethods()
     {
         /*
-         * First / FirstOrDefault
+         * 要素の取得（単一）
          */
         // LinqのFirstのサンプル
-        var list = new List<int> { 1, 2, 3, 4, 5 };
+        var list = new List<int> { 3, 2, 1, 4, 5, 5 };
         var first = list.First();
         // LinqのFirst 条件付きのサンプル
         var first2 = list.First(i => i % 2 == 0);
@@ -53,7 +53,6 @@ public class LinqSample : MonoBehaviour
         {
             Debug.Log(e);
         }
-
         // LinqのFirstOrDefaultのサンプル
         var firstOrDefault = list.FirstOrDefault();
         // LinqのFirstOrDefault 条件付きのサンプル
@@ -61,10 +60,6 @@ public class LinqSample : MonoBehaviour
         // LinqのFirstOrDefault 条件に合わない場合はデフォルト値が返る
         var firstOrDefault3 = list.FirstOrDefault(i => i > 6);
 
-
-        /*
-         * Last / LastOrDefault
-         */
         // LinqのLastのサンプル
         var last = list.Last();
         // LinqのLast 条件付きのサンプル
@@ -85,6 +80,62 @@ public class LinqSample : MonoBehaviour
         var lastOrDefault2 = list.LastOrDefault(i => i % 2 == 0);
         // LinqのLastOrDefault 条件に合わない場合はデフォルト値が返る
         var lastOrDefault3 = list.LastOrDefault(i => i > 6);
+
+
+        /*
+         * 要素の取得（複数）
+         */
+        // LinqのWhereのサンプル
+        var where = list.Where(i => i % 2 == 0).ToArray();
+        // LinqのWhere 条件に合わない場合は空の配列が返る
+        var where2 = list.Where(i => i > 6).ToArray();
+
+        // LinqのDistinctのサンプル
+        var distinct = list.Distinct().ToArray();
+    
+        /*
+         * 集計系
+         */
+        // LinqのMaxのサンプル
+        var max = list.Max();
+        // LinqのMinのサンプル
+        var min = list.Min();
+        // LinqのSumのサンプル
+        var sum = list.Sum();
+        // LinqのAverageのサンプル
+        var average = list.Average();
+        // LinqのCountのサンプル
+        var count = list.Count();
+
+        /*
+         * 判定系
+         */
+        // LinqのAllのサンプル
+        var all = list.All(i => i > 0);
+        // LinqのAll 条件に合わない場合はfalseが返る
+        var all2 = list.All(i => i > 6);
+
+        // LinqのAnyのサンプル
+        var any = list.Any(i => i > 0);
+        // LinqのAny 条件に合う場合はtrueが返る
+        var any2 = list.Any(i => i > 2);
+        // LinqのAny 条件に合わない場合はfalseが返る
+        var any3 = list.Any(i => i > 6);
+
+        // LinqのContainsのサンプル
+        var contains = list.Contains(1);
+        // LinqのContains 条件に合う場合はtrueが返る
+        var contains2 = list.Contains(2);
+        // LinqのContains 条件に合わない場合はfalseが返る
+        var contains3 = list.Contains(6);
+
+        /*
+         * 並び替え系
+         */
+        // LinqのOrderByのサンプル
+        var orderBy = list.OrderBy(i => i).ToArray();
+        // LinqのOrderByDescendingのサンプル
+        var orderByDescending = list.OrderByDescending(i => i).ToArray();
     }
 
     void GetDictionarySample()
