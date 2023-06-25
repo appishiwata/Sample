@@ -35,6 +35,7 @@ public class LinqSample : MonoBehaviour
         //GetDictionarySample();
         //GetLinqSampleMethods();
         //GetPersonListSample();
+        GetSelectMethodSample();
 
         // PersonクラスのListを作成 コンストラクタを使って初期化
         var persons = new List<Person>
@@ -101,6 +102,35 @@ public class LinqSample : MonoBehaviour
 
         // _buttonsのinteractableがfalseの要素をすべて取得
         var interactableButtons = _buttons.Where(button => button.interactable == false).ToArray();
+    }
+
+    void GetSelectMethodSample()
+    {
+        // LinQのサンプル Selectメソッド
+        var array = new int[] { 1, 2, 3, 4, 5 };
+        var array2 = array.Select(i => i * 2).ToArray();
+        
+        // Personクラス
+        var persons = new List<Person>
+        {
+            new Person(1, "A", 10),
+            new Person(2, "B", 20),
+            new Person(3, "C", 30),
+            new Person(4, "D", 40),
+            new Person(5, "E", 50),
+        };
+        // SelectメソッドでNameを抽出
+        var persons2 = persons.Select(p => p.Name).ToArray();
+        // SelectメソッドでAgeを抽出
+        var persons3 = persons.Select(p => p.Age).ToArray();
+        // SelectメソッドでAgeの半分を抽出
+        var persons4 = persons.Select(p => p.Age / 2).ToArray();
+
+        // SelectメソッドでNameとAgeを抽出 keyとvalueを指定してDictionaryに変換
+        var persons5 = persons.Select(p => new { p.Name, p.Age }).ToDictionary(p => p.Name, p => p.Age);
+        // ArrayとListはこの処理だとキーがばぐる
+        //var persons6 = persons.Select(p => new { p.Name, p.Age }).ToArray();
+        //var persons7 = persons.Select(p => new { p.Name, p.Age }).ToList();
     }
 
     void GetPersonListSample()
