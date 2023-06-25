@@ -16,6 +16,15 @@ public class LinqSample : MonoBehaviour
         public int Id { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
+        // コンストラクタ
+        public Person() { }
+        // コンストラクタ
+        public Person(int id, string name, int age)
+        {
+            Id = id;
+            Name = name;
+            Age = age;
+        }
     }
 
     void Start()
@@ -25,7 +34,77 @@ public class LinqSample : MonoBehaviour
         //GetArraySample();
         //GetDictionarySample();
         //GetLinqSampleMethods();
+        //GetPersonListSample();
 
+        // PersonクラスのListを作成 コンストラクタを使って初期化
+        var persons = new List<Person>
+        {
+            new Person(1, "A", 10),
+            new Person(2, "B", 20),
+            new Person(3, "C", 30),
+            new Person(4, "D", 40),
+            new Person(5, "E", 50),
+        };
+        // Whereメソッドで条件に合うものを抽出
+        var persons2 = persons.Where(p => p.Age >= 30).ToList();
+
+        // PersonクラスのArrayを作成 コンストラクタを使って初期化
+        var persons3 = new Person[]
+        {
+            new Person(1, "A", 10),
+            new Person(2, "B", 20),
+            new Person(3, "C", 30),
+            new Person(4, "D", 40),
+            new Person(5, "E", 50),
+        };
+        // Whereメソッドで条件に合うものを抽出
+        var persons4 = persons3.Where(p => p.Age <= 30).ToArray();
+
+        // PersonクラスのDictionaryを作成 コンストラクタを使って初期化
+        var persons5 = new Dictionary<int, Person>
+        {
+            { 1, new Person(1, "A", 10) },
+            { 2, new Person(2, "B", 20) },
+            { 3, new Person(3, "C", 30) },
+            { 4, new Person(4, "D", 40) },
+            { 5, new Person(5, "E", 50) },
+        };
+        // Whereメソッドで条件に合うものを抽出
+        var persons6 = persons5.Where(p => p.Value.Age >= 30).ToDictionary(p => p.Key, p => p.Value);
+
+
+        // LinQのサンプル Array型
+        var array = new int[] { 1, 2, 3, 4, 5 };
+        var array2 = array.Where(i => i % 2 == 0).ToArray();
+        // LinQのサンプル List型
+        var list = new List<int> { 1, 2, 3, 4, 5 };
+        var list2 = list.Where(i => i % 2 == 0).ToList();
+        // LinQのサンプル Dictionary型
+        var dictionary = new Dictionary<int, string>
+        {
+            { 1, "1" },
+            { 2, "2" },
+            { 3, "3" },
+        };
+        var dictionary2 = dictionary.Where(i => i.Key % 2 == 0).ToDictionary(i => i.Key, i => i.Value);
+
+        // 以下すべてToarrayしてるけどしなくてもループできる
+        // Debugで確認するときはToArrayしておくとループせずに中身確認できる
+        // _textsの要素をすべて取得
+        var texts = _texts.Select(text => text.text).ToArray();
+
+        // _buttonsの要素をすべて取得
+        var buttons = _buttons.Select(button => button.gameObject).ToArray();
+
+        // _buttonsの要素のTextをすべて取得
+        var buttonsTexts = _buttons.Select(button => button.GetComponentInChildren<TextMeshProUGUI>().text).ToArray();
+
+        // _buttonsのinteractableがfalseの要素をすべて取得
+        var interactableButtons = _buttons.Where(button => button.interactable == false).ToArray();
+    }
+
+    void GetPersonListSample()
+    {
         // PersonクラスのListを作成
         var persons = new List<Person>
         {
@@ -61,36 +140,6 @@ public class LinqSample : MonoBehaviour
         };
         // Whereメソッドで条件に合うものを抽出
         var persons6 = persons5.Where(p => p.Value.Age >= 40).ToDictionary(p => p.Key, p => p.Value);
-
-
-        // LinQのサンプル Array型
-        var array = new int[] { 1, 2, 3, 4, 5 };
-        var array2 = array.Where(i => i % 2 == 0).ToArray();
-        // LinQのサンプル List型
-        var list = new List<int> { 1, 2, 3, 4, 5 };
-        var list2 = list.Where(i => i % 2 == 0).ToList();
-        // LinQのサンプル Dictionary型
-        var dictionary = new Dictionary<int, string>
-        {
-            { 1, "1" },
-            { 2, "2" },
-            { 3, "3" },
-        };
-        var dictionary2 = dictionary.Where(i => i.Key % 2 == 0).ToDictionary(i => i.Key, i => i.Value);
-
-        // 以下すべてToarrayしてるけどしなくてもループできる
-        // Debugで確認するときはToArrayしておくとループせずに中身確認できる
-        // _textsの要素をすべて取得
-        var texts = _texts.Select(text => text.text).ToArray();
-
-        // _buttonsの要素をすべて取得
-        var buttons = _buttons.Select(button => button.gameObject).ToArray();
-
-        // _buttonsの要素のTextをすべて取得
-        var buttonsTexts = _buttons.Select(button => button.GetComponentInChildren<TextMeshProUGUI>().text).ToArray();
-
-        // _buttonsのinteractableがfalseの要素をすべて取得
-        var interactableButtons = _buttons.Where(button => button.interactable == false).ToArray();
     }
 
     void GetLinqSampleMethods()
