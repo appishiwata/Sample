@@ -16,7 +16,22 @@ public class LinqSample : MonoBehaviour
         //GetListSample();
         //GetArraySample();
         //GetDictionarySample();
-        GetLinqSampleMethods();
+        //GetLinqSampleMethods();
+
+        // LinQのサンプル Array型
+        var array = new int[] { 1, 2, 3, 4, 5 };
+        var array2 = array.Where(i => i % 2 == 0).ToArray();
+        // LinQのサンプル List型
+        var list = new List<int> { 1, 2, 3, 4, 5 };
+        var list2 = list.Where(i => i % 2 == 0).ToList();
+        // LinQのサンプル Dictionary型
+        var dictionary = new Dictionary<int, string>
+        {
+            { 1, "1" },
+            { 2, "2" },
+            { 3, "3" },
+        };
+        var dictionary2 = dictionary.Where(i => i.Key % 2 == 0).ToDictionary(i => i.Key, i => i.Value);
 
         // 以下すべてToarrayしてるけどしなくてもループできる
         // Debugで確認するときはToArrayしておくとループせずに中身確認できる
