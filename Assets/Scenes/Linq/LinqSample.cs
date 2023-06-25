@@ -16,6 +16,7 @@ public class LinqSample : MonoBehaviour
         //GetListSample();
         //GetArraySample();
         //GetDictionarySample();
+        GetLinqSampleMethods();
 
         // 以下すべてToarrayしてるけどしなくてもループできる
         // Debugで確認するときはToArrayしておくとループせずに中身確認できる
@@ -30,6 +31,60 @@ public class LinqSample : MonoBehaviour
 
         // _buttonsのinteractableがfalseの要素をすべて取得
         var interactableButtons = _buttons.Where(button => button.interactable == false).ToArray();
+    }
+
+    void GetLinqSampleMethods()
+    {
+        /*
+         * First / FirstOrDefault
+         */
+        // LinqのFirstのサンプル
+        var list = new List<int> { 1, 2, 3, 4, 5 };
+        var first = list.First();
+        // LinqのFirst 条件付きのサンプル
+        var first2 = list.First(i => i % 2 == 0);
+        // LinqのFirst 条件に合わない場合は例外が発生する
+        // try catchで囲むか、FirstOrDefaultを使う
+        try
+        {
+            var first3 = list.First(i => i > 6);
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e);
+        }
+
+        // LinqのFirstOrDefaultのサンプル
+        var firstOrDefault = list.FirstOrDefault();
+        // LinqのFirstOrDefault 条件付きのサンプル
+        var firstOrDefault2 = list.FirstOrDefault(i => i % 2 == 0);
+        // LinqのFirstOrDefault 条件に合わない場合はデフォルト値が返る
+        var firstOrDefault3 = list.FirstOrDefault(i => i > 6);
+
+
+        /*
+         * Last / LastOrDefault
+         */
+        // LinqのLastのサンプル
+        var last = list.Last();
+        // LinqのLast 条件付きのサンプル
+        var last2 = list.Last(i => i % 2 == 0);
+        // LinqのLast 条件に合わない場合は例外が発生する
+        // try catchで囲むか、LastOrDefaultを使う
+        try
+        {
+            var last3 = list.Last(i => i > 6);
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e);
+        }
+        // LinqのLastOrDefaultのサンプル
+        var lastOrDefault = list.LastOrDefault();
+        // LinqのLastOrDefault 条件付きのサンプル
+        var lastOrDefault2 = list.LastOrDefault(i => i % 2 == 0);
+        // LinqのLastOrDefault 条件に合わない場合はデフォルト値が返る
+        var lastOrDefault3 = list.LastOrDefault(i => i > 6);
     }
 
     void GetDictionarySample()
