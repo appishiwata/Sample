@@ -22,13 +22,15 @@ public class CardAnimSample : MonoBehaviour
             {
                 //_cardImageのalphaを0にする
                 _cardImage.DOFade(0f, 0.1f);
-                // _cardImageUpperと_cardImageLowerを上下にアニメーションさせる
-                _cardImageUpper.transform.DOMove(new Vector3(-100f, 800f, 0f), 1.5f)
+                // _cardImageUpperと_cardImageLowerのDoTweenを同時に実行する
+                DOTween.Sequence()
+                    .Append(_cardImageUpper.transform.DOMove(new Vector3(-100f, 800f, 0f), 1.5f))
+                    .Join(_cardImageLower.transform.DOMove(new Vector3(100f, -800f, 0f), 1.5f))
                     .SetDelay(0.5f)
-                    .SetRelative();
-                _cardImageLower.transform.DOMove(new Vector3(100f, -800f, 0f), 1.5f)
-                    .SetDelay(0.5f)
-                    .SetRelative();
+                    .SetRelative()
+                    .OnComplete(() =>
+                    {
+                    });
             });
     }
 }
