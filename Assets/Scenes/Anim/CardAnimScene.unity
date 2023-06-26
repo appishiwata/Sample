@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d2ef2d040b84eb28c0830412c34914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cardImage: {fileID: 1406367794}
 --- !u!4 &452560382
 Transform:
   m_ObjectHideFlags: 0

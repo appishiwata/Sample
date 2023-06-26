@@ -11,6 +11,17 @@ public class CardAnimSample : MonoBehaviour
 
     void Start()
     {
-        _cardImage.transform.DOMoveY(400f, 1f).SetRelative().SetDelay(0.5f);
+        _cardImage.transform.DOMoveY(400f, 2f)
+            .SetRelative()
+            .SetEase(Ease.OutBounce)
+            .SetDelay(0.5f)
+            .OnComplete(() =>
+            {
+                DOTween.Sequence()
+                    .AppendInterval(1f)
+                    .Append(_cardImage.transform.DOScale(1.1f, 1f))
+                    .Append(_cardImage.transform.DOScale(1f, 1f))
+                    .SetLoops(-1);
+            });
     }
 }
