@@ -28,8 +28,15 @@ public class CardAnimSample : MonoBehaviour
                     .Join(_cardImageLower.transform.DOMove(new Vector3(100f, -800f, 0f), 1.5f))
                     .SetDelay(0.5f)
                     .SetRelative()
-                    .OnComplete(() =>
+                    // 上記の処理が始まったら
+                    .OnStart(() =>
                     {
+                        _characterImage.DOFade(1f, 0.3f)
+                            .SetDelay(0.5f);
+                        _characterImage.transform.DOShakePosition(1f, 10f, 10, 90f, false, true)
+                            .SetDelay(0.5f);
+                        _characterImage.transform.DOScale(0.7f, 0.1f)
+                            .SetDelay(1.5f);                        
                     });
             });
     }
