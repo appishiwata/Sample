@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,17 +19,20 @@ public class ClassSample : MonoBehaviour
         playerList.Add(player1);
         playerList.Add(player2);
         playerList.Add(player3);
-        //playerListの中身を表示
-        foreach (var player in playerList)
-        {
-            Debug.Log("hp:" + player.hp + " power:" + player.power);
-        }
 
-        var playerList2 = playerList.Where(player => player.hp > 300)
-            .ToList();
-        foreach (var player in playerList2)
+        var playerList2 = playerList.Where(player => player.hp > 300);
+
+        // 要素としてIDと名前とAgeを持つDictionaryを作成
+        var playerDict = new Dictionary<int, string>();
+        playerDict.Add(1, "tanaka");
+        playerDict.Add(2, "suzuki");
+        playerDict.Add(3, "yamada");
+
+        // Enemyクラスに変換
+        var enemyList = playerDict.Select(player => new Enemy(player)).ToList();
+        foreach (var enemy in enemyList)
         {
-            Debug.Log("hp:" + player.hp + " power:" + player.power);
+            Debug.Log(enemy.ID + " " + enemy.Name + " " + enemy.Age);
         }
     }
 
@@ -63,5 +67,26 @@ public class ClassSample : MonoBehaviour
         mySuperPlayer.Attack();
         mySuperPlayer.Damage(30);
         mySuperPlayer.SpecialAttack();
+    }
+}
+
+public class Enemy
+{
+    public string ID;
+    public string Name;
+    public int Age;
+
+    public Enemy(string id, string name, int age)
+    {
+        this.ID = id;
+        this.Name = name;
+        this.Age = age;
+    }
+
+    public Enemy(KeyValuePair<int, string> player)
+    {
+        this.ID = Convert.ToString(player.Key);
+        this.Name = player.Value;
+        this.Age = 20 * player.Key;
     }
 }
