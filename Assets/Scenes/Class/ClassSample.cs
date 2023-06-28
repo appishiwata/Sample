@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ClassSample : MonoBehaviour
@@ -13,10 +14,19 @@ public class ClassSample : MonoBehaviour
         //Playerクラスのインスタンスを作成
         var player1 = new Player(200, 50);
         var player2 = new Player(300, 100);
+        var player3 = new Player(400, 150);
         playerList.Add(player1);
         playerList.Add(player2);
+        playerList.Add(player3);
         //playerListの中身を表示
         foreach (var player in playerList)
+        {
+            Debug.Log("hp:" + player.hp + " power:" + player.power);
+        }
+
+        var playerList2 = playerList.Where(player => player.hp > 300)
+            .ToList();
+        foreach (var player in playerList2)
         {
             Debug.Log("hp:" + player.hp + " power:" + player.power);
         }
