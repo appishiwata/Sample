@@ -7,6 +7,7 @@ using UnityEngine;
 public class TextAnimSample : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI _titleText;
+    [SerializeField] TextMeshProUGUI _countText;
 
     void Start()
     {
@@ -14,5 +15,8 @@ public class TextAnimSample : MonoBehaviour
 
         // DOTweenを使ったアニメーション
         _titleText.DOText("DOTween", 1.0f).SetEase(Ease.Linear);
+
+        // _countTextをDOCounterでアニメーション
+        _countText.DOCounter(0, 100, 2.0f).SetEase(Ease.Linear);
     }
 }
