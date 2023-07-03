@@ -9,6 +9,6 @@ public class FuriganaSample : MonoBehaviour
 
     void Start()
     {
-        _titleText.text = "Furigana";
+        _titleText.text = "発電所<style=p6>はつでんしょ</style>";
     }
 }
