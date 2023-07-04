@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class GraphicSample : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] GameObject _sphereObject;
+    [SerializeField] Material _sphereMaterial;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _sphereObject.GetComponent<Renderer>().material = _sphereMaterial;
     }
 }
