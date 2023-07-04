@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FuriganaSample : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI _titleText;
+    [SerializeField] TextMeshProUGUI[] _titleTexts;
 
     void Start()
     {
@@ -17,14 +17,18 @@ public class FuriganaSample : MonoBehaviour
             new NameAndFurigana("回復", "かいふく"),
         };
 
-        // リストの要素をランダムに取得
-        var nameAndFurigana = nameAndFuriganaList[Random.Range(0, nameAndFuriganaList.Count)];
+        // _titleTextsを個数分ループ index番号を使う
+        for (int i = 0; i < _titleTexts.Length; i++)
+        {
+            // リストの要素をランダムに取得
+            var nameAndFurigana = nameAndFuriganaList[i];
 
-        // furiganaの文字数を取得
-        int furiganaLength = nameAndFurigana.Furigana.Length;
+            // furiganaの文字数を取得
+            int furiganaLength = nameAndFurigana.Furigana.Length;
 
-        // NameとFuriganaをTextMeshProUGUIに設定
-        _titleText.text = $"{nameAndFurigana.Name}<style=p{furiganaLength}>{nameAndFurigana.Furigana}</style>";
+            // NameとFuriganaをTextMeshProUGUIに設定
+            _titleTexts[i].text = $"{nameAndFurigana.Name}<style=p{furiganaLength}>{nameAndFurigana.Furigana}</style>";
+        }
     }
 }
 
