@@ -35,15 +35,16 @@ public class MeshSample : MonoBehaviour
     void createMesh()
     {
         // 頂点座標の設定
-        Vector3[] vertices = new Vector3[3]
+        Vector3[] vertices = new Vector3[4]
         {
             new Vector3(0, 0, 0),
             new Vector3(1, 0, 0),
-            new Vector3(0, 1, 0)
+            new Vector3(0, 1, 0),
+            new Vector3(1, 1, 0)
         };
 
         // 三角形のインデックス
-        int[] triangles = new int[3] { 0, 2, 1 };
+        int[] triangles = new int[6] { 0, 2, 1, 1, 2, 3 };
 
         // メッシュオブジェクトの作成
         Mesh mesh = new Mesh();
