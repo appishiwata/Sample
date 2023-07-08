@@ -9,6 +9,7 @@ public class MeshSample : MonoBehaviour
     [SerializeField] Mesh _mesh;
 
     [SerializeField] GameObject _sampleObject;
+    [SerializeField] GameObject _cube;
 
     void Start()
     {
@@ -60,8 +61,28 @@ public class MeshSample : MonoBehaviour
         mesh.vertices = vertices;
         mesh.triangles = triangles;
         mesh.normals = normals;
+        mesh.name = "MeshSample";
 
         // ゲームオブジェクトの作成
         _sampleObject.GetComponent<MeshFilter>().mesh = mesh;
+
+
+        // _cubeのMeshを取得
+        var cubeMesh = _cube.GetComponent<MeshFilter>().mesh;
+
+        // メッシュのサイズを取得
+        var size = cubeMesh.bounds.size;
+        // メッシュの中心座標を取得
+        var center = cubeMesh.bounds.center;
+        // メッシュの最小座標を取得
+        var min = cubeMesh.bounds.min;
+        // メッシュの最大座標を取得
+        var max = cubeMesh.bounds.max;
+
+        Debug.Log("size:" + size);
+        Debug.Log("center:" + center);
+        Debug.Log("min:" + min);
+        Debug.Log("max:" + max);
+
     }
 }
