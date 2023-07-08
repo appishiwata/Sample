@@ -46,10 +46,20 @@ public class MeshSample : MonoBehaviour
         // 三角形のインデックス
         int[] triangles = new int[6] { 0, 2, 1, 1, 2, 3 };
 
+        // 法線ベクトルの設定
+        Vector3[] normals = new Vector3[4]
+        {
+            new Vector3(0, 0, -1),
+            new Vector3(0, 0, -1),
+            new Vector3(0, 0, -1),
+            new Vector3(0, 0, -1)
+        };
+
         // メッシュオブジェクトの作成
         Mesh mesh = new Mesh();
         mesh.vertices = vertices;
         mesh.triangles = triangles;
+        mesh.normals = normals;
 
         // ゲームオブジェクトの作成
         _sampleObject.GetComponent<MeshFilter>().mesh = mesh;
