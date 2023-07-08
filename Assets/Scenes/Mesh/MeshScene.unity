@@ -743,6 +743,8 @@ MonoBehaviour:
   _mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
   _sampleObject: {fileID: 476716811}
   _cube: {fileID: 1696069980}
+  _red: {fileID: 2100000, guid: da8a39ad94c00445fb0a71382be77215, type: 2}
+  _blue: {fileID: 2100000, guid: 778551d867a9b456a8f36ec8dbbbcc22, type: 2}
 --- !u!4 &2145749738
 Transform:
   m_ObjectHideFlags: 0

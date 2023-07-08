@@ -10,6 +10,8 @@ public class MeshSample : MonoBehaviour
 
     [SerializeField] GameObject _sampleObject;
     [SerializeField] GameObject _cube;
+    [SerializeField] Material _red;
+    [SerializeField] Material _blue;
 
     void Start()
     {
@@ -30,7 +32,8 @@ public class MeshSample : MonoBehaviour
         // メッシュをオブジェクトに設定
         _sphere.GetComponent<MeshFilter>().mesh = _mesh;
 
-        createMesh();
+        //createMesh();
+        createMeshAndSubMesh();
     }
 
     void createMesh()
@@ -60,6 +63,7 @@ public class MeshSample : MonoBehaviour
         Mesh mesh = new Mesh();
         mesh.vertices = vertices;
         mesh.triangles = triangles;
+
         mesh.normals = normals;
         mesh.name = "MeshSample";
 
@@ -84,5 +88,42 @@ public class MeshSample : MonoBehaviour
         Debug.Log("min:" + min);
         Debug.Log("max:" + max);
 
+
+        // メッシュの頂点座標を取得
+        
+    }
+
+    void createMeshAndSubMesh()
+    {
+        // メッシュオブジェクトの作成
+        Mesh mesh = new Mesh();
+
+        // 頂点座標の設定
+        Vector3[] vertices = new Vector3[4]
+        {
+            new Vector3(0, 0, 0),
+            new Vector3(1, 0, 0),
+            new Vector3(0, 1, 0),
+            new Vector3(1, 1, 0)
+        };
+
+        // サブメッシュ1の三角形のインデックス
+        int[] subMesh1Triangles = new int[3] { 0, 2, 1 };
+
+        // サブメッシュ2の三角形のインデックス
+        int[] subMesh2Triangles = new int[3] { 1, 2, 3 };
+
+        // 頂点座標とサブメッシュごとの三角形のインデックスを設定
+        mesh.vertices = vertices;
+        mesh.subMeshCount = 2;
+        mesh.SetTriangles(subMesh1Triangles, 0);
+        mesh.SetTriangles(subMesh2Triangles, 1);
+
+        // サブメッシュごとのマテリアルを設定
+        var materials = new Material[2] { _red, _blue };
+        _sampleObject.GetComponent<MeshRenderer>().materials = materials;
+
+        // ゲームオブジェクトにメッシュを割り当てる
+        _sampleObject.GetComponent<MeshFilter>().mesh = mesh;        
     }
 }
