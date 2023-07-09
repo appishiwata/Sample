@@ -12,6 +12,8 @@ public class MeshSample : MonoBehaviour
     [SerializeField] GameObject _cube;
     [SerializeField] Material _red;
     [SerializeField] Material _blue;
+    
+    [SerializeField] GameObject _sphereDissolveObject;
 
     void Start()
     {
@@ -33,7 +35,8 @@ public class MeshSample : MonoBehaviour
         _sphere.GetComponent<MeshFilter>().mesh = _mesh;
 
         //createMesh();
-        createMeshAndSubMesh();
+        //createMeshAndSubMesh();
+        SetDissolveMaterial();
     }
 
     void createMesh()
@@ -125,5 +128,14 @@ public class MeshSample : MonoBehaviour
 
         // ゲームオブジェクトにメッシュを割り当てる
         _sampleObject.GetComponent<MeshFilter>().mesh = mesh;        
+    }
+    
+    // DissolveMaterialを設定
+    void SetDissolveMaterial()
+    {
+        // マテリアルを取得
+        var material = _sphereDissolveObject.GetComponent<MeshRenderer>().material;
+        // マテリアルの_DissolveAmountプロパティを設定
+        material.SetFloat("_DissolveAmount", 0.5f);
     }
 }
