@@ -1,4 +1,6 @@
 using System.Linq;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -9,8 +11,8 @@ public class PositionSample : MonoBehaviour
     
     [SerializeField] TextMeshProUGUI _textForTransform;
     [SerializeField] TextMeshProUGUI _textForRectTransform;
-    
-    void Start()
+
+    async void Start()
     {
         //_sphere.transform.position = new Vector3(0, 0, 0);
         //_sphere.transform.position = _target.transform.position;
@@ -37,7 +39,16 @@ public class PositionSample : MonoBehaviour
         // Utility.WorldToScreenPointを使って座標変換をする sphereの位置の上にUIを表示する
         //var screenPoint = Camera.main.WorldToScreenPoint(_sphere.transform.position);
         // _shpereの位置をy座標をプラスして取得する
-        var screenPoint = Camera.main.WorldToScreenPoint(_sphere.transform.position + new Vector3(0, 2, 0));
+        var screenPoint = Camera.main!.WorldToScreenPoint(_sphere.transform.position + new Vector3(0, 2, 0));
         _textForRectTransform.rectTransform.position = screenPoint;
+        
+        // 1秒待つ
+        await UniTask.Delay(1000);
+
+        // dotweenを使って移動する DomoveとDoLocalMoveの違いを確認する
+        // _textForRectTransformを左下に移動 
+        //_textForRectTransform.rectTransform.DOMove(new Vector3(0, 0, 0), 1f);
+        // _textForRectTransformを真ん中に移動
+        _textForRectTransform.rectTransform.DOLocalMove(new Vector3(0, 0, 0), 1f);
     }
 }
