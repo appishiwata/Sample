@@ -12,7 +12,9 @@ public class PositionSample : MonoBehaviour
     [SerializeField] TextMeshProUGUI _textForTransform;
     [SerializeField] TextMeshProUGUI _textForRectTransform;
 
-    async void Start()
+    [SerializeField] TextMeshProUGUI _text;
+    
+    void Start()
     {
         //_sphere.transform.position = new Vector3(0, 0, 0);
         //_sphere.transform.position = _target.transform.position;
@@ -25,6 +27,22 @@ public class PositionSample : MonoBehaviour
         var childFirst = _parent.GetComponentsInChildren<Transform>().FirstOrDefault(x => x.name.StartsWith("Cube")); // 1個目の子
         _sphere.transform.position = childFirst!.position;
         
+        TextMove();
+        
+        // RectTransformの変数をテストする
+        //_text.rectTransform.anchoredPosition = new Vector3(0, 0, 0);
+        //_text.rectTransform.anchoredPosition3D = new Vector3(0, 0, 0);
+        //_text.rectTransform.anchorMax = new Vector2(1, 1);
+        //_text.rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
+        //_text.rectTransform.offsetMax = new Vector2(0, 0);
+        //_text.rectTransform.offsetMin = new Vector2(0, 0);
+        //_text.rectTransform.pivot = new Vector2(0.5f, 0.5f);
+        //_text.rectTransform.rect.Set(0, 0, 0, 0);
+        //_text.rectTransform.sizeDelta = new Vector2(0, 0);
+    }
+    
+    async void TextMove()
+    {
         // UIの位置を調整 > これはどちらも同じ左下に表示される
         //_textForTransform.transform.position = new Vector3(0, 0, 0);
         //_textForRectTransform.rectTransform.position = new Vector3(0, 0, 0);
