@@ -1,15 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class PositionSample : MonoBehaviour
 {
     [SerializeField] GameObject _sphere;
-    [SerializeField] GameObject _target;
     [SerializeField] GameObject _parent;
-
-
+    
     void Start()
     {
         //_sphere.transform.position = new Vector3(0, 0, 0);
@@ -20,7 +16,7 @@ public class PositionSample : MonoBehaviour
         {
             _sphere.transform.position = child.position;
         }
-        var childFirst = _parent.GetComponentsInChildren<Transform>().Where(x => x.name.StartsWith("Cube")).FirstOrDefault(); // 1個目の子
-        _sphere.transform.position = childFirst.position;
+        var childFirst = _parent.GetComponentsInChildren<Transform>().FirstOrDefault(x => x.name.StartsWith("Cube")); // 1個目の子
+        _sphere.transform.position = childFirst!.position;
     }
 }
