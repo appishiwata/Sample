@@ -1,17 +1,29 @@
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CloneSample : MonoBehaviour
 {
     [SerializeField] GameObject _prefab;
     [SerializeField] Transform _parent;
-    [SerializeField] Transform[] _positions;
+    // Vector3の配列を5個用意する
+    [SerializeField] Transform[] _positions = new Transform[5];
 
-    private void Start()
+    async void Start()
     {
-        // _positionsの位置を確認する あらかじめ入れておく
-        _positions.Select(x => x.position).ToList().ForEach(x => Debug.Log(x));
+        // プレハブを5個生成する
+        await AddCloneAsync();
+        
+        // _parentの子要素をすべて削除
+        foreach (Transform child in _parent)
+        {
+            Destroy(child.gameObject);
+        }
+        
+        // _parentのgridLayoutGroupを無効にする
+        _parent.GetComponent<GridLayoutGroup>().enabled = false;
         
         // 5個生成する
         for (int i = 0; i < 5; i++)
@@ -29,4 +41,20 @@ public class CloneSample : MonoBehaviour
                 .SetDelay(0.5f);
         }
     }
+
+    async UniTask AddCloneAsync()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            GameObject obj = Instantiate(_prefab, _parent);
+
+            // レイアウトの調整を待つ
+            await UniTask.Yield();
+
+            // 位置情報を取得
+            _positions[i] = obj.transform;
+            Debug.Log(_positions[i].position);
+        }
+    }
+    
 }
