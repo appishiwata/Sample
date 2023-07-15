@@ -11,6 +11,9 @@ public class UITipsSample : MonoBehaviour
     [SerializeField] Slider _cubeSizeSlider;
     [SerializeField] GameObject _cube;
     
+    [SerializeField] Slider _hpSliderWholeNumber;
+    [SerializeField] TextMeshProUGUI _hpText;
+    
     void Start()
     {
         _titleText.text = "UITips";
@@ -28,5 +31,12 @@ public class UITipsSample : MonoBehaviour
         {
             _cube.transform.localScale = Vector3.one * value;
         });
+        
+        // _hpSliderWholeNumberの値を0.5にする
+        int hp = 50;
+        int maxHp = 100;
+        _hpSliderWholeNumber.value = hp;
+        // _hpTextのテキストを0.5にする
+        _hpText.text = hp.ToString() + "/" + maxHp.ToString();
     }
 }
