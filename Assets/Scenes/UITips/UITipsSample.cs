@@ -32,11 +32,24 @@ public class UITipsSample : MonoBehaviour
             _cube.transform.localScale = Vector3.one * value;
         });
         
-        // _hpSliderWholeNumberの値を0.5にする
-        int hp = 50;
+        // _hpSliderWholeNumberの値を0にする
+        int hp = 0;
         int maxHp = 100;
         _hpSliderWholeNumber.value = hp;
-        // _hpTextのテキストを0.5にする
-        _hpText.text = hp.ToString() + "/" + maxHp.ToString();
+        // _hpTextのテキストを0にする
+        _hpText.text = hp + "/" + maxHp;
+
+        // _hpSliderWholeNumberの値をDOTWeenで1秒かけて1にする
+        _hpSliderWholeNumber.DOValue(maxHp, 2f)
+            .OnComplete(() =>
+            {
+                _hpSliderWholeNumber.DOValue(hp, 2f);
+            });
+
+        // _hpSliderWholeNumberの値と_hpTextのテキストを連動させる
+        _hpSliderWholeNumber.onValueChanged.AddListener(value =>
+        {
+            _hpText.text = value + "/" + maxHp;
+        });
     }
 }
