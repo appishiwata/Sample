@@ -16,21 +16,17 @@ public class UITipsSample : MonoBehaviour
         _titleText.text = "UITips";
         // _sliderの値を0.5にする
         //_hpSlider.value = 0.5f;
-        // _sliderの値をdotweenで1秒かけて1にする
+        // _sliderの値をDOTWeenで1秒かけて1にする
         _hpSlider.DOValue(1f, 2f);
         
-        // _cubeSizeSliderの値を0.5にする
+        // _cubeSizeSliderの値を0.5にして初期値にする
         _cubeSizeSlider.value = 0.5f;
-        
-        // _cubeのscaleの初期値を_sliderの値にする
         _cube.transform.localScale = Vector3.one * _cubeSizeSlider.value;
         
         // _cubeSizeSliderの値と_cubeのScaleを連動させる
-        _cubeSizeSlider.onValueChanged.AddListener(OnCubeSizeSliderValueChanged);
-    }
-
-    private void OnCubeSizeSliderValueChanged(float arg0)
-    {
-        _cube.transform.localScale = Vector3.one * arg0;
+        _cubeSizeSlider.onValueChanged.AddListener(value =>
+        {
+            _cube.transform.localScale = Vector3.one * value;
+        });
     }
 }
