@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UITipsSample : MonoBehaviour
+public class SliderSample : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI _titleText;
     [SerializeField] Slider _hpSlider;
