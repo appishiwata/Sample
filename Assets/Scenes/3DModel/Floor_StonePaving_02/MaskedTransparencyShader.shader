@@ -27,15 +27,9 @@ Shader "Custom/TransparentMaskedShader"
         {
             half4 mainColor = tex2D(_MainTex, IN.uv_MainTex);
             half maskValue = tex2D(_MaskTex, IN.uv_MaskTex).r;
- 
-            // マスクの値が0（黒）の部分を透明にする
-            if (maskValue == 0)
-            {
-                discard;
-            }
- 
+
             o.Albedo = mainColor.rgb;
-            o.Alpha = mainColor.a;
+            o.Alpha = mainColor.a * maskValue; // マスクの値に基づいてアルファ値を設定
         }
         ENDCG
     }
