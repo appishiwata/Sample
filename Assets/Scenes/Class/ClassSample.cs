@@ -1,39 +1,39 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class ClassSample : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI _userIDText;
+    [SerializeField] TextMeshProUGUI _userNameText;
+    [SerializeField] TextMeshProUGUI _userAgeText;
+    
     void Start()
     {
         //Sample();
+        //Sample2();
+        //CreateUser();
+        
+        // myUserInfoをLoadする
+        UserInfo myUserInfo = new UserInfo();
+        myUserInfo.Load();
+        _userIDText.text = myUserInfo.ID.ToString();
+        _userNameText.text = myUserInfo.Name;
+        _userAgeText.text = myUserInfo.Age.ToString();
+    }
 
-        //Playerクラスのリストを作成
-        var playerList = new List<Player>();
-        //Playerクラスのインスタンスを作成
-        var player1 = new Player(200, 50);
-        var player2 = new Player(300, 100);
-        var player3 = new Player(400, 150);
-        playerList.Add(player1);
-        playerList.Add(player2);
-        playerList.Add(player3);
-
-        var playerList2 = playerList.Where(player => player.hp > 300);
-
-        // 要素としてIDと名前とAgeを持つDictionaryを作成
-        var playerDict = new Dictionary<int, string>();
-        playerDict.Add(1, "tanaka");
-        playerDict.Add(2, "suzuki");
-        playerDict.Add(3, "yamada");
-
-        // Enemyクラスに変換
-        var enemyList = playerDict.Select(player => new Enemy(player)).ToList();
-        foreach (var enemy in enemyList)
-        {
-            Debug.Log(enemy.ID + " " + enemy.Name + " " + enemy.Age);
-        }
+    void CreateUser()
+    {
+        // UserInfoクラスの変数を宣言してインスタンスを代入
+        UserInfo myUserInfo = new UserInfo();
+        // UserInfoクラスのメンバ変数にアクセスして値を代入
+        myUserInfo.ID = 1;
+        myUserInfo.Name = "Taro";
+        myUserInfo.Age = 20;
+        // UserInfoクラスのメンバ関数にアクセスして実行
+        myUserInfo.Save();
     }
 
     void Sample()
@@ -67,6 +67,34 @@ public class ClassSample : MonoBehaviour
         mySuperPlayer.Attack();
         mySuperPlayer.Damage(30);
         mySuperPlayer.SpecialAttack();
+    }
+
+    void Sample2()
+    {
+        //Playerクラスのリストを作成
+        var playerList = new List<Player>();
+        //Playerクラスのインスタンスを作成
+        var player1 = new Player(200, 50);
+        var player2 = new Player(300, 100);
+        var player3 = new Player(400, 150);
+        playerList.Add(player1);
+        playerList.Add(player2);
+        playerList.Add(player3);
+
+        var playerList2 = playerList.Where(player => player.hp > 300);
+
+        // 要素としてIDと名前とAgeを持つDictionaryを作成
+        var playerDict = new Dictionary<int, string>();
+        playerDict.Add(1, "tanaka");
+        playerDict.Add(2, "suzuki");
+        playerDict.Add(3, "yamada");
+
+        // Enemyクラスに変換
+        var enemyList = playerDict.Select(player => new Enemy(player)).ToList();
+        foreach (var enemy in enemyList)
+        {
+            Debug.Log(enemy.ID + " " + enemy.Name + " " + enemy.Age);
+        }
     }
 }
 
