@@ -11,6 +11,7 @@ public class ClassSample : MonoBehaviour
     [SerializeField] TextMeshProUGUI _userIDText;
     [SerializeField] TextMeshProUGUI _userNameText;
     [SerializeField] TextMeshProUGUI _userGoldText;
+    [SerializeField] TextMeshProUGUI _userGoldWithTaxText;
     
     [SerializeField] Button _getGoldButton;
         
@@ -27,13 +28,18 @@ public class ClassSample : MonoBehaviour
         _userNameText.text = myUserInfo.Name;
         
         // Goldの値を監視して変更があったらTextを更新する
-        myUserInfo.GoldObservable.Subscribe(gold =>{ _userGoldText.text = gold.ToString(); });
+        myUserInfo.GoldObservable.Subscribe(gold =>
+        {
+            _userGoldText.text = gold.ToString();
+            _userGoldWithTaxText.text = myUserInfo.GoldWithTax.ToString();
+        });
 
         // _getGoldButtonを押したらGoldを増やす
         _getGoldButton.onClick.AddListener(() =>
         {
             myUserInfo.Gold += 10;
             myUserInfo.Save();
+            Debug.Log(myUserInfo.GoldWithTax);
         });
     }
 
