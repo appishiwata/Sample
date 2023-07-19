@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,14 +25,15 @@ public class ClassSample : MonoBehaviour
         myUserInfo.Load();
         _userIDText.text = myUserInfo.ID.ToString();
         _userNameText.text = myUserInfo.Name;
-        _userGoldText.text = myUserInfo.Gold.ToString();
+        
+        // Goldの値を監視して変更があったらTextを更新する
+        myUserInfo.GoldObservable.Subscribe(gold =>{ _userGoldText.text = gold.ToString(); });
 
         // _getGoldButtonを押したらGoldを増やす
         _getGoldButton.onClick.AddListener(() =>
         {
             myUserInfo.Gold += 10;
             myUserInfo.Save();
-            _userGoldText.text = myUserInfo.Gold.ToString();
         });
     }
 

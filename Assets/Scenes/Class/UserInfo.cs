@@ -1,10 +1,12 @@
+using UniRx;
 using UnityEngine;
 
 public class UserInfo
 {
     public int ID;
     public string Name;
-    public int Gold;
+    public int Gold { get => GoldObservable.Value; set => GoldObservable.Value=value; }
+    public ReactiveProperty<int> GoldObservable = new ReactiveProperty<int>(0);
     
     // 端末に保存
     public void Save()
