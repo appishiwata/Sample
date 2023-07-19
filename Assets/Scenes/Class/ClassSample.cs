@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClassSample : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI _userIDText;
     [SerializeField] TextMeshProUGUI _userNameText;
-    [SerializeField] TextMeshProUGUI _userAgeText;
+    [SerializeField] TextMeshProUGUI _userGoldText;
     
+    [SerializeField] Button _getGoldButton;
+        
     void Start()
     {
         //Sample();
@@ -21,7 +24,15 @@ public class ClassSample : MonoBehaviour
         myUserInfo.Load();
         _userIDText.text = myUserInfo.ID.ToString();
         _userNameText.text = myUserInfo.Name;
-        _userAgeText.text = myUserInfo.Age.ToString();
+        _userGoldText.text = myUserInfo.Gold.ToString();
+
+        // _getGoldButtonを押したらGoldを増やす
+        _getGoldButton.onClick.AddListener(() =>
+        {
+            myUserInfo.Gold += 10;
+            myUserInfo.Save();
+            _userGoldText.text = myUserInfo.Gold.ToString();
+        });
     }
 
     void CreateUser()
@@ -31,7 +42,7 @@ public class ClassSample : MonoBehaviour
         // UserInfoクラスのメンバ変数にアクセスして値を代入
         myUserInfo.ID = 1;
         myUserInfo.Name = "Taro";
-        myUserInfo.Age = 20;
+        myUserInfo.Gold = 20;
         // UserInfoクラスのメンバ関数にアクセスして実行
         myUserInfo.Save();
     }
@@ -83,7 +94,7 @@ public class ClassSample : MonoBehaviour
 
         var playerList2 = playerList.Where(player => player.hp > 300);
 
-        // 要素としてIDと名前とAgeを持つDictionaryを作成
+        // 要素としてIDと名前とGoldを持つDictionaryを作成
         var playerDict = new Dictionary<int, string>();
         playerDict.Add(1, "tanaka");
         playerDict.Add(2, "suzuki");
@@ -93,7 +104,7 @@ public class ClassSample : MonoBehaviour
         var enemyList = playerDict.Select(player => new Enemy(player)).ToList();
         foreach (var enemy in enemyList)
         {
-            Debug.Log(enemy.ID + " " + enemy.Name + " " + enemy.Age);
+            Debug.Log(enemy.ID + " " + enemy.Name + " " + enemy.Gold);
         }
     }
 }
@@ -102,19 +113,19 @@ public class Enemy
 {
     public string ID;
     public string Name;
-    public int Age;
+    public int Gold;
 
-    public Enemy(string id, string name, int age)
+    public Enemy(string id, string name, int Gold)
     {
         this.ID = id;
         this.Name = name;
-        this.Age = age;
+        this.Gold = Gold;
     }
 
     public Enemy(KeyValuePair<int, string> player)
     {
         this.ID = Convert.ToString(player.Key);
         this.Name = player.Value;
-        this.Age = 20 * player.Key;
+        this.Gold = 20 * player.Key;
     }
 }

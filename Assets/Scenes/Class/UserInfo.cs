@@ -4,14 +4,14 @@ public class UserInfo
 {
     public int ID;
     public string Name;
-    public int Age;
+    public int Gold;
     
     // 端末に保存
     public void Save()
     {
         PlayerPrefs.SetInt("ID", this.ID);
         PlayerPrefs.SetString("Name", this.Name);
-        PlayerPrefs.SetInt("Age", this.Age);
+        PlayerPrefs.SetInt("Gold", this.Gold);
     }
     
     // 端末から読み込み
@@ -19,6 +19,6 @@ public class UserInfo
     {
         this.ID = PlayerPrefs.GetInt("ID");
         this.Name = PlayerPrefs.GetString("Name");
-        this.Age = PlayerPrefs.GetInt("Age");
+        this.Gold = PlayerPrefs.GetInt("Gold");
     }
 }
