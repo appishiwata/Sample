@@ -24,32 +24,31 @@ public class BasicClassSample : MonoBehaviour
         Debug.Log(myItem2.ID); // 2
         Debug.Log(myItem2.Name); // Shield
         Debug.Log(myItem2.Price); // 200
+        
+        // 追加：Priceの2倍を返すプロパティを使う
+        Debug.Log(myItem2.DoublePrice); // 400
+        // 追加：Priceの2倍を代入しようとするとエラーになる
+        //myItem2.DoublePrice = 100; // Error
     }
 }
 
-// Itemクラスを作成
 public class Item
 {
-    // メンバ変数を宣言
-    public int ID;
-    public string Name;
-
-    // 読み取り専用のメンバ変数を宣言
+    public int ID { get; set; }
+    public string Name { get; set; }
     public int Price { get; private set; }
-    
-    // コンストラクタを定義
-    public Item()
+
+    // 追加：価格（Price）の2倍を返すプロパティ
+    // setを書かなければ読み取り専用になる
+    public int DoublePrice
     {
-        // メンバ変数に初期値を代入
-        ID = 0;
-        Name = null;
-        Price = 0;
+        get { return Price * 2; }
     }
-    
-    // コンストラクタを定義
+
+    public Item() { }
+
     public Item(int id, string name, int price)
     {
-        // メンバ変数に引数の値を代入
         ID = id;
         Name = name;
         Price = price;
