@@ -9,7 +9,7 @@ public class UserInfo
     public ReactiveProperty<int> GoldObservable = new ReactiveProperty<int>(0);
     
     public int GoldWithTax { get => (int)(Gold * 1.1f); }
-
+    
     // 端末に保存
     public void Save()
     {
