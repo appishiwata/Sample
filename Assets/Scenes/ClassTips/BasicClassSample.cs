@@ -29,6 +29,17 @@ public class BasicClassSample : MonoBehaviour
         Debug.Log(myItem2.DoublePrice); // 400
         // 追加：Priceの2倍を代入しようとするとエラーになる
         //myItem2.DoublePrice = 100; // Error
+        
+        // Itemクラスをコンストラクタを使ってインスタンス化
+        // enumを使ってみる
+        Item myItem3 = new Item(3, "Accessory", 300, Item.ItemType.Accessory);
+        Debug.Log(myItem3.ID); // 3
+        Debug.Log(myItem3.Name); // Accessory
+        Debug.Log(myItem3.Price); // 300
+        Debug.Log(myItem3.Type); // Accessory
+        
+        // enumはstaticなのでクラス名でアクセスできる
+        Debug.Log(myItem3.Type == Item.ItemType.Accessory); // true
     }
 }
 
@@ -49,5 +60,25 @@ public class Item
         ID = id;
         Name = name;
         Price = price;
+    }
+    
+    // enumを使ってみる
+    public enum ItemType
+    {
+        Weapon,
+        Shield,
+        Accessory,
+    }
+    
+    // enumを使ってみる
+    public ItemType Type;
+    
+    // 追加：enumを使ってみる
+    public Item(int id, string name, int price, ItemType type)
+    {
+        ID = id;
+        Name = name;
+        Price = price;
+        Type = type;
     }
 }
