@@ -441,7 +441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sourceTexture: {fileID: 2800000, guid: c8dba84589c4946f086b79cf375d92fd, type: 3}
-  imagePrefab: {fileID: 8236452788801830549, guid: fc35c5b07314542689665b99031a533f, type: 3}
+  imagePrefab: {fileID: 509408187022668101, guid: fc35c5b07314542689665b99031a533f, type: 3}
   minSize: 32
   maxSize: 128
   _splitTextures: []
