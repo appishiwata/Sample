@@ -36,14 +36,11 @@ public class Item
 {
     public int ID { get; set; }
     public string Name { get; set; }
-    public int Price { get; private set; }
+    public int Price { get; }
 
     // 追加：価格（Price）の2倍を返すプロパティ
     // setを書かなければ読み取り専用になる
-    public int DoublePrice
-    {
-        get { return Price * 2; }
-    }
+    public int DoublePrice => Price * 2;
 
     public Item() { }
 
