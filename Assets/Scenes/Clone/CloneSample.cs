@@ -27,8 +27,8 @@ public class CloneSample : MonoBehaviour
             Card card = obj.GetComponent<Card>();
             card.SetCardData(new CardData()
             {
-                icon = Resources.Load<Sprite>("FaceIcons/boy_0" + (i+1)),
-                name = "Card" + (i+1)
+                Icon = Resources.Load<Sprite>("FaceIcons/boy_0" + (i+1)),
+                Name = "Card" + (i+1)
             });
             // 生成したオブジェクトを_positionsの位置に移動させる
             obj.transform.DOMove(_positions[i].transform.position, 1f)
@@ -37,11 +37,16 @@ public class CloneSample : MonoBehaviour
         }
 
         // _closeButtonが押されたらこのusingブロックを抜ける
-        using (Card.OnClickedSelectButton.Subscribe(data =>
+        using (Card.OnClickedSelectButton.Subscribe(async data =>
         {
-            Debug.Log(data.name);
-            _selectedIconImage.sprite = data.icon;
-            _selectedNameText.text = data.name;
+            Debug.Log(data.Name);
+            _selectedIconImage.sprite = data.Icon;
+            _selectedNameText.text = data.Name;
+            
+            // 1秒待機
+            await Observable.Timer(System.TimeSpan.FromSeconds(1f));
+            data.IncrementSelectedCount();
+            Debug.Log(data.SelectedCount);
         }))
         {
             // _closeButtonが押されるまで待機する

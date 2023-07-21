@@ -23,13 +23,20 @@ public class Card : MonoBehaviour
     {
         CardData = cardData;
         
-        _icon.sprite = cardData.icon;
-        _name.text = cardData.name;
+        _icon.sprite = cardData.Icon;
+        _name.text = cardData.Name;
     }
 }
 
 public class CardData
 {
-    public Sprite icon;
-    public string name;
+    public Sprite Icon;
+    public string Name;
+
+    public int SelectedCount { get; private set; }
+    
+    public void IncrementSelectedCount()
+    {
+        SelectedCount++;
+    }
 }
