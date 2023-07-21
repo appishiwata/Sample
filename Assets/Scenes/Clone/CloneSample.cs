@@ -1,5 +1,6 @@
 using System.Linq;
 using DG.Tweening;
+using TMPro;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,9 @@ public class CloneSample : MonoBehaviour
     [SerializeField] Transform _parent;
     [SerializeField] Transform[] _positions;
     [SerializeField] Button _cloneButton;
+    
+    [SerializeField] Image _selectedIconImage;
+    [SerializeField] TextMeshProUGUI _selectedNameText;
 
     private async void Start()
     {
@@ -36,6 +40,8 @@ public class CloneSample : MonoBehaviour
         using (Card.OnClickedSelectButton.Subscribe(data =>
         {
             Debug.Log(data.name);
+            _selectedIconImage.sprite = data.icon;
+            _selectedNameText.text = data.name;
         }))
         {
             // _closeButtonが押されるまで待機する
