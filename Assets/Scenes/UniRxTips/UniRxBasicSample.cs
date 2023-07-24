@@ -52,5 +52,13 @@ public class UniRxBasicSample : MonoBehaviour
         subject5.OnNext(3); // ここまで表示される
         subject5.OnNext(4);
         subject5.OnNext(5);
+        
+        // 具体的な例
+        // 1秒待機する
+        Observable.Timer(TimeSpan.FromSeconds(1f))
+            .Subscribe(x => Debug.Log(x));
+        // 1秒ごとにイベントを発行する
+        Observable.Interval(TimeSpan.FromSeconds(1f))
+            .Subscribe(x => Debug.Log(x));
     }
 }
