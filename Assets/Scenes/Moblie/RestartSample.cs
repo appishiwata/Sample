@@ -2,23 +2,30 @@ using UnityEngine;
 
 public class RestartSample : MonoBehaviour
 {
-    // これはUnityエディター上では動作しない
+    //バックグラウンドに行っているか
+    private bool _isBackground;
+  
     private void OnApplicationPause(bool pauseStatus) {
-        if (pauseStatus) {
-            Debug.Log($"アプリが一時停止(バックグラウンドに行った)");
-        }
-        else {
-            Debug.Log($"アプリが再開(バックグラウンドから戻った)");
-        }
+        ChangeBackgroundStatus(pauseStatus);
     }
-    
-    // これはUnityエディター上では動作する
+
     private void OnApplicationFocus(bool hasFocus) {
-        if (hasFocus) {
-            Debug.Log($"アプリが選択された(バックグラウンドから戻った)");
+        ChangeBackgroundStatus(!hasFocus);
+    }
+
+    //アプリがバックグラウンドにいるかのステータスを変更
+    private void ChangeBackgroundStatus(bool isBackground) {
+        if (isBackground == _isBackground) {
+            return;
         }
-        else {
-            Debug.Log($"アプリが選択されなくなった(バックグラウンドに行った)");
+
+        if (isBackground) {
+            Debug.Log($"アプリがバックグラウンドへ");
         }
+        else{
+            Debug.Log($"アプリがバックグラウンドから復帰");
+        }
+
+        _isBackground = isBackground;
     }
 }
