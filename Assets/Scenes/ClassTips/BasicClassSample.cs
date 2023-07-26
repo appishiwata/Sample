@@ -40,6 +40,35 @@ public class BasicClassSample : MonoBehaviour
         
         // enumはstaticなのでクラス名でアクセスできる
         Debug.Log(myItem3.Type == Item.ItemType.Accessory); // true
+        
+        // enumはintにキャストできる
+        Debug.Log((int)myItem3.Type); // 2
+        
+        // enumは文字列にキャストできる
+        Debug.Log(myItem3.Type.ToString()); // Accessory
+        
+        // enumは文字列からキャストできる
+        Debug.Log((Item.ItemType)System.Enum.Parse(typeof(Item.ItemType), "Accessory")); // Accessory
+        
+        // enumはforeachで回せる
+        foreach (Item.ItemType type in System.Enum.GetValues(typeof(Item.ItemType)))
+        {
+            Debug.Log(type);
+        }
+        
+        // enumはswitch文で使える
+        switch (myItem3.Type)
+        {
+            case Item.ItemType.Weapon:
+                Debug.Log("Weapon");
+                break;
+            case Item.ItemType.Shield:
+                Debug.Log("Shield");
+                break;
+            case Item.ItemType.Accessory:
+                Debug.Log("Accessory");
+                break;
+        }
     }
 }
 
