@@ -7,7 +7,7 @@ public class ScrollSample : MonoBehaviour
     [SerializeField] Transform _parent;
     [SerializeField] Transform _parentWithContentSizeFitter;
     
-    [SerializeField] ScrollRect _scrollView;
+    [SerializeField] ScrollRect[] _scrollViewList;
     
     void Start()
     {
@@ -27,7 +27,10 @@ public class ScrollSample : MonoBehaviour
             instance.transform.localPosition = Vector3.zero;
         }
 
-        // verticalNormalizedPositionを0.5にすると真ん中にスクロールする
-        _scrollView.verticalNormalizedPosition = 0.5f;
+        // _scrollViewListをループして、verticalNormalizedPositionを0.5にすると真ん中にスクロールする
+        foreach (var scrollView in _scrollViewList)
+        {
+            scrollView.verticalNormalizedPosition = 0.5f;
+        }
     }
 }
