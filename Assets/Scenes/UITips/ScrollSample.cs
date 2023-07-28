@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScrollSample : MonoBehaviour
 {
     [SerializeField] GameObject _prefab;
     [SerializeField] Transform _parent;
     [SerializeField] Transform _parentWithContentSizeFitter;
+    
+    [SerializeField] ScrollRect _scrollView;
     
     void Start()
     {
@@ -23,5 +26,8 @@ public class ScrollSample : MonoBehaviour
             GameObject instance = Instantiate(_prefab, _parentWithContentSizeFitter);
             instance.transform.localPosition = Vector3.zero;
         }
+
+        // verticalNormalizedPositionを0.5にすると真ん中にスクロールする
+        _scrollView.verticalNormalizedPosition = 0.5f;
     }
 }
