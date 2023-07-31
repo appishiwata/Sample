@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class StanDardSample : MonoBehaviour
 {
     void Start()
     {
@@ -17,10 +17,10 @@ public class NewBehaviourScript : MonoBehaviour
         
         // 配列定義 > リスト変換 > ForEachで表示
         string[] list = {"A", "B", "C"};
-        list.ToList().ForEach(x => Debug.Log(x));
+        list.ToList().ForEach(Debug.Log);
         
         // リスト定義 > ForEachで表示
         List<string> list2 = new List<string>() {"A", "B", "C"};
-        list2.ForEach(x => Debug.Log(x));
+        list2.ForEach(Debug.Log);
     }
 }
