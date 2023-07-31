@@ -9,5 +9,8 @@ public class NewBehaviourScript : MonoBehaviour
         
         // 色をつけてDebug.Logで表示する
         Debug.Log("<color=red>赤色</color>");
+        
+        // 検索しやすいDebug.Logで表示する
+        Debug.Log("【エラー】");
     }
 }
