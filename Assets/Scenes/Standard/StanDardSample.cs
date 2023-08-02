@@ -24,6 +24,9 @@ namespace Scenes.Standard
             // リスト定義 > ForEachで表示
             List<string> list2 = new List<string>() {"A", "B", "C"};
             list2.ForEach(Debug.Log);
+            
+            // ランダムな文字列を生成する
+            Debug.Log(System.Guid.NewGuid().ToString());
         }
     }
 }
