@@ -27,6 +27,15 @@ namespace Scenes.Standard
             
             // ランダムな文字列を生成する
             Debug.Log(System.Guid.NewGuid().ToString());
+            
+            // ランダムな文字列を生成する
+            Debug.Log(System.Guid.NewGuid().ToString("N"));
+            
+            // ランダムな文字列を生成する
+            Debug.Log(System.Guid.NewGuid().ToString("D"));
+            
+            // ランダムな文字列を生成する 文字数5文字
+            Debug.Log(System.Guid.NewGuid().ToString("N").Substring(0, 5));
         }
     }
 }
