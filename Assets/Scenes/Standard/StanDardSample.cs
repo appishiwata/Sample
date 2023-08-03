@@ -42,6 +42,10 @@ namespace Scenes.Standard
             // Actionを使ってDebug.Logで表示する
             Action action = () => Debug.Log("Action");
             action();
+            
+            // Funcを使ってDebug.Logで表示する
+            Func<string> func = () => "Func";
+            Debug.Log(func());
         }
     }
 }
