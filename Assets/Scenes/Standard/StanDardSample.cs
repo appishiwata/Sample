@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -46,6 +47,30 @@ namespace Scenes.Standard
             // Funcを使ってDebug.Logで表示する
             Func<string> func = () => "Func";
             Debug.Log(func());
+            
+            // Actionとswitch文を使ってDebug.Logで表示する
+            var key = 0;
+            Action actionA = key switch
+            {
+                0 => Method1,
+                1 => Method2,
+                _ => Other
+            };
+            actionA();
         }
+        
+        void Method1()
+        {
+            Debug.Log("1の処理");
+        }
+        void Method2()
+        {
+            Debug.Log("2の処理");
+        }
+        void Other()
+        {
+            Debug.Log("Other");
+        }
+
     }
 }
