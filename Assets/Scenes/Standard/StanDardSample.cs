@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Scenes.Standard
 {
@@ -36,6 +38,10 @@ namespace Scenes.Standard
             
             // ランダムな文字列を生成する 文字数5文字
             Debug.Log(System.Guid.NewGuid().ToString("N").Substring(0, 5));
+            
+            // Actionを使ってDebug.Logで表示する
+            Action action = () => Debug.Log("Action");
+            action();
         }
     }
 }
