@@ -57,6 +57,15 @@ namespace Scenes.Standard
                 _ => Other
             };
             actionA();
+            
+            // Funcとswitch文を使ってDebug.Logで表示する
+            Func<string> funcA = key switch
+            {
+                0 => () => "0",
+                1 => () => "1",
+                _ => () => "Other"
+            };
+            Debug.Log(funcA());
         }
         
         void Method1()
