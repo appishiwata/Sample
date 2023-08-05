@@ -66,6 +66,10 @@ namespace Scenes.Standard
                 _ => () => "Other"
             };
             Debug.Log(funcA());
+            
+            // Func 数字を返す
+            Func<int> funcB = () => 1;
+            Debug.Log(funcB());
         }
         
         void Method1()
