@@ -133,6 +133,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4077722412921512308, guid: 5ac5e0c090ebb4f80b94ad813e9c7886, type: 3}
   m_PrefabInstance: {fileID: 1803440928}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &104057486 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+  m_PrefabInstance: {fileID: 383654964}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &284088013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -2767158026622599748, guid: 5ac5e0c090ebb4f80b94ad813e9c7886, type: 3}
@@ -214,6 +219,66 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[7]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[8]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[57]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[59]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[71]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[75]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[83]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[88]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[91]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[104]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[109]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4691230989529314481, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -226,6 +291,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: marine
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
       propertyPath: m_Controller
       value: 
@@ -233,7 +302,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 561813691}
   m_SourcePrefab: {fileID: 100100000, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
 --- !u!4 &466380787 stripped
 Transform:
@@ -245,6 +317,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7325691529258360931, guid: 5ac5e0c090ebb4f80b94ad813e9c7886, type: 3}
   m_PrefabInstance: {fileID: 1803440928}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &561813688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+  m_PrefabInstance: {fileID: 383654964}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &561813689 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+  m_PrefabInstance: {fileID: 383654964}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &561813691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561813688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ced990d087b74de08abbf7621027ef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 561813689}
+  _skinnedMeshRenderer: {fileID: 104057486}
 --- !u!4 &577827198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5986875387983098047, guid: 5ac5e0c090ebb4f80b94ad813e9c7886, type: 3}
@@ -641,6 +737,26 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 0.072426796
       objectReference: {fileID: 0}
+    - target: {fileID: 7140606858727328969, guid: b571ba5cb664e4241be829de3a63cd70, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.size
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140606858727328969, guid: b571ba5cb664e4241be829de3a63cd70, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140606858727328969, guid: b571ba5cb664e4241be829de3a63cd70, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140606858727328969, guid: b571ba5cb664e4241be829de3a63cd70, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140606858727328969, guid: b571ba5cb664e4241be829de3a63cd70, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[8]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -677,6 +793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 1769894957}
+  _skinnedMeshRenderer: {fileID: 0}
 --- !u!95 &1769894957 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4870552773557632513, guid: b571ba5cb664e4241be829de3a63cd70, type: 3}
@@ -738,6 +855,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7080558359866985216, guid: 5ac5e0c090ebb4f80b94ad813e9c7886, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7080558359866985216, guid: 5ac5e0c090ebb4f80b94ad813e9c7886, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7080558359866985216, guid: 5ac5e0c090ebb4f80b94ad813e9c7886, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -5255271113240447737, guid: 5ac5e0c090ebb4f80b94ad813e9c7886, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -753,6 +882,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5ac5e0c090ebb4f80b94ad813e9c7886, type: 3}
       propertyPath: m_Name
       value: aqua
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5ac5e0c090ebb4f80b94ad813e9c7886, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 5ac5e0c090ebb4f80b94ad813e9c7886, type: 3}
       propertyPath: m_Controller

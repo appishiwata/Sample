@@ -4,10 +4,13 @@ using UnityEngine;
 public class VrmAnimSample : MonoBehaviour
 {
     [SerializeField] Animator _animator;
+    [SerializeField] SkinnedMeshRenderer _skinnedMeshRenderer;
 
     void Start()
     {
-        _animator.SetInteger("animBaseInt", 3);
+        _animator.SetInteger("animBaseInt", 1);
+
+        _skinnedMeshRenderer.SetBlendShapeWeight(0, 20f);
         
         // UniRXでスペースキーを押したらアニメーションを変更する
         Observable.EveryUpdate()
