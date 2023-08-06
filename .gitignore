@@ -81,3 +81,10 @@ Assets/Fonts.meta
 Assets/Fonts/*
 
 .idea/
+
+Assets/UniGLTF.meta
+Assets/UniGLTF/
+Assets/VRM10.meta
+Assets/VRM10/
+Assets/VRMShaders.meta
+Assets/VRMShaders/
