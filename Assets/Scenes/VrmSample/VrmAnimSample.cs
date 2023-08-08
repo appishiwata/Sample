@@ -32,6 +32,7 @@ public class VrmAnimSample : MonoBehaviour
             .Subscribe(_ =>
             {
                 _skinnedMeshRenderer.SetBlendShapeWeight(145, 100f);
+                _skinnedMeshRenderer.SetBlendShapeWeight(148, 100f); // 肘縮小
                 _skinnedMeshRenderer.SetBlendShapeWeight(149, 100f);
             });
     }
