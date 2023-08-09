@@ -16,6 +16,7 @@ public class VrmAnimSample : MonoBehaviour
         {
             float weight = _skinnedMeshRenderer.GetBlendShapeWeight(i);
             Debug.Log($"BlendShape index: {i}, Weight: {weight}");
+            //_skinnedMeshRenderer.SetBlendShapeWeight(i, 100f);
         }
 
         // UniRXでスペースキーを押したらアニメーションを変更する
