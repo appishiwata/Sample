@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18018535, g: 0.22559482, b: 0.30677685, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -404,6 +404,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[105]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
       propertyPath: m_BlendShapeWeights.Array.data[108]
       value: 0
       objectReference: {fileID: 0}
@@ -445,7 +449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
       propertyPath: m_BlendShapeWeights.Array.data[145]
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
       propertyPath: m_BlendShapeWeights.Array.data[146]
@@ -457,11 +461,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
       propertyPath: m_BlendShapeWeights.Array.data[148]
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -6516726845296588495, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
       propertyPath: m_BlendShapeWeights.Array.data[149]
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -4691230989529314481, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
       propertyPath: m_IsActive
@@ -615,7 +619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1040210918
 AudioListener:
   m_ObjectHideFlags: 0
