@@ -21,5 +21,8 @@ public class ObjectSample : MonoBehaviour
         {
             child.gameObject.layer = 1;
         }
+        
+        // メッシュを取得
+        Mesh mesh = _object.GetComponent<MeshFilter>().mesh;
     }
 }
