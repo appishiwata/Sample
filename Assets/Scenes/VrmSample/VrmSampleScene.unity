@@ -538,7 +538,7 @@ PrefabInstance:
     - target: {fileID: 5866666021909216657, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: a8555c0cff30527479e32562cef9141f, type: 2}
+      objectReference: {fileID: 9100000, guid: 75d3a58b3d7879f41926561701407a48, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -584,6 +584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 561813689}
   _skinnedMeshRenderer: {fileID: 104057486}
+  speed: 10
 --- !u!4 &561813692 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 94c8e54c5c64b4615b8d70af8cbbf13b, type: 3}
@@ -1134,6 +1135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1769894957}
   _skinnedMeshRenderer: {fileID: 0}
+  speed: 10
 --- !u!95 &1769894957 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4870552773557632513, guid: b571ba5cb664e4241be829de3a63cd70, type: 3}
