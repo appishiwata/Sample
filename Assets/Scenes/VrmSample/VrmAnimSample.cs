@@ -37,4 +37,21 @@ public class VrmAnimSample : MonoBehaviour
                 _skinnedMeshRenderer.SetBlendShapeWeight(149, 100f);
             });
     }
+    
+    public float speed = 10.0f;
+
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.UpArrow))
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+
+        if (Input.GetKey(KeyCode.DownArrow))
+            transform.Translate(-Vector3.forward * speed * Time.deltaTime);
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+            transform.Translate(-Vector3.right * speed * Time.deltaTime);
+
+        if (Input.GetKey(KeyCode.RightArrow))
+            transform.Translate(Vector3.right * speed * Time.deltaTime);
+    }
 }
