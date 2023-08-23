@@ -19,6 +19,6 @@ public class CharacterAnimSample : MonoBehaviour
         
         // Unitaskでボタンを押すまで待つ
         await _smileButton.OnClickAsync();
-        _image.sprite = _sprites[3];
+        _image.gameObject.SetActive(false);
     }
 }
