@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class CanvasSample : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] Canvas _canvas;
+    [SerializeField] Canvas _subCanvas;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("Canvas RenderMode: " + _canvas.renderMode);
+        Debug.Log("SubCanvas RenderMode: " + _subCanvas.renderMode);
     }
 }
